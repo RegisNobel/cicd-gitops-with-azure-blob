@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ytdl
+  labels:
+    app: ytdl
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ytdl
+  template:
+    metadata:
+      labels:
+        app: ytdl
+    spec:
+      containers:
+        - name: ytdl
+          image: ytdlregistry.azurecr.io/ytdlimages:latest
+          ports:
+            - containerPort: 5000
