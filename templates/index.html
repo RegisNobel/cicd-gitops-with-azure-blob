@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Download YouTube Video</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Download YouTube Video</h1>
+        <form method="POST">
+            <label for="url">YouTube URL:</label>
+            <input type="text" id="url" name="url" required>
+            <button type="submit">Download</button>
+        </form>
+    </div>
+</body>
+</html>
