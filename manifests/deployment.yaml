@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
         - name: ytdl
-          image: ytdlregistry.azurecr.io/ytdlimages:9
+          image: ytdlregistry.azurecr.io/ytdlimages:13
           ports:
             - containerPort: 5002
