@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: ytdl
-          image: ytdlregistry.azurecr.io/ytdlimages:22
+          image: ytdlregistry.azurecr.io/ytdlimages:24
           env:
         - name: az-conn
           valueFrom:
