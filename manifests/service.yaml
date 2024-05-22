@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: ytdl
+  name: yt-downloader
   namespace: default
 spec:
   type: LoadBalancer
   selector:
-    app: ytdl
+    app: yt-downloader
   ports:
     - protocol: TCP
       port: 5002
