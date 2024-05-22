@@ -18,5 +18,11 @@ spec:
       containers:
         - name: ytdl
           image: ytdlregistry.azurecr.io/ytdlimages:14
+          env:
+        - name: AZURE_CONNECTION_STRING
+          valueFrom:
+            secretKeyRef:
+              name: az-conn
+              key: AZURE_CONNECTION_STRING
           ports:
             - containerPort: 5002
