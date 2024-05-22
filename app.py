@@ -10,11 +10,11 @@ app = Flask(__name__)
 load_dotenv()  # This loads the environment variables from .env
 
 # Azure storage details
-AZURE_CONNECTION_STRING = os.getenv('AZURE_CONNECTION_STRING')
+azConnectionString = os.getenv('azConnectionString')
 CONTAINER_NAME = "ytdlblob"
 
 # Initialize the BlobServiceClient
-blob_service_client = BlobServiceClient.from_connection_string(AZURE_CONNECTION_STRING)
+blob_service_client = BlobServiceClient.from_connection_string(azConnectionString)
 
 
 @app.route('/', methods=['GET', 'POST'])

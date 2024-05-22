@@ -17,12 +17,12 @@ spec:
     spec:
       containers:
       - name: yt-downloader
-        image: ytdlregistry.azurecr.io/ytdlimages:29
+        image: ytdlregistry.azurecr.io/ytdlimages:30
         env:
-        - name: az-conn
+        - name: azConnectionString
           valueFrom:
             secretKeyRef:
               name: az-conn
-              key: AZURE_CONNECTION_STRING
+              key: azConnectionString
         ports:
         - containerPort: 5002
