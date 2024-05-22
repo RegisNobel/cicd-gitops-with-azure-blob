@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ytdl
+  name: yt-downloader
   labels:
-    app: ytdl
+    app: yt-downloader
   namespace: default
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ytdl
+      app: yt-downloader
   template:
     metadata:
       labels:
-        app: ytdl
+        app: yt-downloader
     spec:
       containers:
         - name: yt-downloader
-          image: ytdlregistry.azurecr.io/ytdlimages:25
+          image: ytdlregistry.azurecr.io/ytdlimages:26
           env:
         - name: az-conn
           valueFrom:
