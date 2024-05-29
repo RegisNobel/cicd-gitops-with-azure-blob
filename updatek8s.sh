@@ -2,7 +2,7 @@
 set -ex
 
 # Set the repository URL
-REPO_URL="https://github.com/RegisNobel/yt-downloader"
+REPO_URL="https://github.com/${GITHUB_REPOSITORY}"
 
 # Check if the run number argument is provided
 if [ -z "$1" ]; then
@@ -38,7 +38,7 @@ git add .
 git commit -m "Manifest update by pipeline [skip ci]"
 
 # Push the changes back to the repository
-git push
+git push "https://${GITHUB_ACTOR}:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
 
 # Cleanup: remove the temporary directory
 rm -rf /tmp/temp_repo
