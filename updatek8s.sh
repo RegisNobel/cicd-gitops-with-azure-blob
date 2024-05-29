@@ -11,6 +11,7 @@ if [ -z "$1" ]; then
 fi
 
 RUN_NUMBER=$1
+echo "Run number: $RUN_NUMBER"
 
 # Cleanup: remove the temporary directory
 rm -rf /tmp/temp_repo
@@ -21,9 +22,14 @@ git clone "$REPO_URL" /tmp/temp_repo
 # Navigate into the cloned repository directory
 cd /tmp/temp_repo
 
+# Configure Git with your name and email
+git config --global user.email "regisnobel95@gmail.com"
+git config --global user.name "RegisNobel"
+
 # Make changes to the Kubernetes manifest file(s)
 # For example, let's say you want to change the image tag in a deployment.yaml file
 sed -i "s|image:.*|image: ytdlregistry.azurecr.io/ytdlimages:$RUN_NUMBER|g" manifests/deployment.yaml
+echo "Updated deployment.yaml with new image tag"
 
 # Add the modified files
 git add .
@@ -36,4 +42,3 @@ git push
 
 # Cleanup: remove the temporary directory
 rm -rf /tmp/temp_repo
-
