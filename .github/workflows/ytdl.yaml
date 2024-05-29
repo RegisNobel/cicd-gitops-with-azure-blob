@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'manifests/**'
   workflow_dispatch: {}
 env:
   ACR_RESOURCE_GROUP: demosResourceGroup
@@ -40,8 +42,15 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.run_number }}
-          #build-args: 
-          #  AZURE_CONNECTION_STRING: ${{ secrets.AZURE_CONNECTION_STRING }}
 
-
-  
+  runScript:
+    needs: buildImage
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run script
+        env:
+          GITHUB_RUN_NUMBER: ${{ github.run_number }}
+        run: |
+          chmod +x ./updatek8s.sh
+          ./updatek8s.sh $GITHUB_RUN_NUMBER

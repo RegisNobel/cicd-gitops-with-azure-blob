@@ -1,14 +1,18 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Success</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
-        <h1>Success!</h1>
-        <p>Video downloaded successfully: {{ link }}</p>
-        <a href="{{ url_for('index') }}">Download another video</a>
+        <h1>Video Uploaded Successfully!</h1>
+        <p>The video from <a href="{{ link }}">{{ link }}</a> has been uploaded.</p>
+        <p>You can access the uploaded video <a href="{{ blob_url }}">here</a>.</p>
+        <br>
+        <a href="{{ url_for('index') }}"><button>Download Another Video</button></a>
     </div>
 </body>
 </html>
