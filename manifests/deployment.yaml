@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: yt-downloader
-        image: ytdlregistry.azurecr.io/ytdlimages:30
+        image: ytdlregistry.azurecr.io/ytdlimages:36
         env:
         - name: azConnectionString
           valueFrom:
