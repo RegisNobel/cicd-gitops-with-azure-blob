@@ -2,9 +2,9 @@ name: ytdl
 on:
   push:
     branches:
-      - main
-    paths:
-      - 'manifests/**'
+    - main
+    #paths:
+    #  - 'manifests/**'
   workflow_dispatch: {}
 env:
   ACR_RESOURCE_GROUP: demosResourceGroup
@@ -51,7 +51,7 @@ jobs:
       - name: Run script
         env:
           GITHUB_RUN_NUMBER: ${{ github.run_number }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           AZURE_CONTAINER_REGISTRY: ${{ env.AZURE_CONTAINER_REGISTRY }}
