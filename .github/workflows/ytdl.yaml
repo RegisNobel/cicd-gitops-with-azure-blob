@@ -3,8 +3,8 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'manifests/**'
+    #paths:
+    #  - 'manifests/**'
   workflow_dispatch: {}
 env:
   ACR_RESOURCE_GROUP: demosResourceGroup
